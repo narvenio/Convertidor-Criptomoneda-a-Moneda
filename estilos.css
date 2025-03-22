@@ -1,6 +1,7 @@
 *{
     padding: 0;
     border: 0;
+    
 }
 
 .header{
@@ -211,16 +212,40 @@
   }
 
   .boton{
-    align-items: center;
     color: white;
     background-color: rgb(114, 114, 114) ;
     font-size: 2em;
-    padding: 15px;
-    border-radius: 25px;
+    padding: 0px 20px 10px;
+    border-radius: 30px;
     font-weight: 500;   
+    margin-top: 1em;
+    border: none;
   }
 
   #resultado{
     font-size: 1.8em;
   }
   
+  @media screen and (max-width: 700px){
+    
+  .navegacion{
+    justify-content:space-between;
+  }
+
+  .custom-select{
+   margin-top: 3em;
+  }
+  .criptos{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  #monto{
+    height: 200px;
+    margin-top: 10px;
+  }
+
+  .custom-select-monedas{
+    margin-top: 1em;
+  }
+  }
