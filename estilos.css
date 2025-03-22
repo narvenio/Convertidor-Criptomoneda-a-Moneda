@@ -1,0 +1,226 @@
+*{
+    padding: 0;
+    border: 0;
+}
+
+.header{
+    background-color: #292929;
+    /*background-color: #ffd671;*/
+}
+
+.navegacion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.anclas{
+    text-decoration: none;
+    font-size: 22px;
+    list-style: none;
+}
+
+.logo{
+    height: 70px;
+}
+
+.criptos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.containers{
+  text-align: center;
+}
+
+.custom-select { /* div que engloba todo */
+    
+    margin-top: 10em;
+    position: relative;
+    width: 300px; /* tamaño del ancho tanto del seleccionador como de todas las cosas, podemos hacerla pequeña o grande*/
+   
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .selected { /* seleccionador */
+    background: #fff;
+    padding: 20px 20px 20px 30px; /* es para el tamaño del borde*/
+    border: 2px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .selected img[src=""]{ /* si dejo en blanco la imagen de la seleccion(al principio) entonces*/
+    display: none;  /* nose muestra nada, esto es para que no se muestre ninguna imagen hasta que el usuario seleccione algo*/
+  }
+  .selected img{
+    width: 30px; 
+    height: 20px;
+    margin-right: 8px;
+  }
+
+  .selected .arrow{ /*Le pone un efecto trancision a la flecha y el "ease" le da un toque rapido y al final suave*/
+    transition: transform 0.3s ease;
+  }
+  
+  .options{ /* div principal de las criptomonedas */
+    display:none;
+    position: absolute; /* que no cambie su posicion */
+    width: 100%; /* para que abarque el % de ancho en el seleccionador */
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto; /* un scroll para que se vea mas bonito y mas ordenado*/
+    max-height: 200px; /* añadimos un maximo de alto*/
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgb(0, 0, 0); /* sintaxis: x y desenfoque color*/
+    /* overflow: hidden; */
+    transform-origin: top; /* decir donde se aplica la transformacion(animacion), "top" para que empieze desde arriba*/
+    transform: scaleY(0); /* "scaley(0): comprimir verticalmente*/
+    transition: transform 0.2s ease-in-out; /* "in-out" empieza lento, acelera en el medio y termina lento*/
+    
+  }
+
+  .option{ /* cada criptomoneda */
+    padding: 15px;
+    display: flex; /* cambiamos la posicion de los texto al lado*/
+    align-items: center; /* alineamos los textos con la imagen*/
+    cursor: pointer;
+    transition: background 0.2 ease; /* añadimos una animacion corta y con inicio lento y final rapido al fondo*/
+  }
+
+  .option img{
+    width: 30px; /* añadimos ancho a cada imagen "sirve para dar espacio de alineado a las imagenes"*/
+    height: 20px;/* añadimos el alto de las imagenes "sirve para definir el alto de la tabla de cosas"*/
+    margin-right: 8px; /* para dar espacio al lado derecho de imagen y que tenga un espacio con las palabras*/
+  }
+
+  .option:hover{
+    background: #EAE6F2; /* color de fondo que cambia cuando pasamos por cada opcion*/
+  }
+
+  .custom-select.open .options{ /* cuando este abierto el div que engloba todo y el div de las criptos*/
+    display: block; /* cuando este abierto que este bloqueado el seleccionador*/
+    transform: scaleY(1); /* cuando este abierto que deje de estar comprimido y tenga su tamaño normal*/
+  }
+
+  .custom-select.open .selected .arrow{ /* cuando este abierto que afecte al div principal, seleccionador y la flecha*/
+    transform: rotate(180deg); /* cuando este abierto que la flecha se voltee */
+  }
+
+  #monto{
+    height: 50px;
+    margin-top: 10em;
+    text-align: center;
+  }
+
+  #resultado{
+    margin-top: 1em;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .custom-select-monedas{ /* div que engloba todas las monedas paises */
+    margin-top: 10em;
+    position: relative;
+    width: 300px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .selected-moneda{ /* seleccionador de las monedas de paises*/
+    background: #fff;
+    padding: 20px 20px 20px 30px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .selected-moneda img[src=""]{ /* especificamos que sea el img que esta vacio del seleccionador*/
+    display: none; /* que no se muestre en pantalla */
+  }
+
+  .selected-moneda img{ /* para modificar la imagen de seleccionador*/
+    width: 30px; /* tamaño de ancho */
+    height: 20px; /* tamaño alto*/
+    margin-right: 8px; /* distancia entre la imagen y el texto (descripcion-span)*/
+  }
+
+  .selected-moneda .arrow{
+    transition: transform 0.3s ease; /* efecto de transicion tanto al seleccionador y al arrow*/
+  }
+
+  .options_moneda{ /* div principal de las criptomonedas */
+    display:none;
+    position: absolute; /* que no cambie su posicion */
+    width: 100%; /* para que abarque el % de ancho en el seleccionador */
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto; /* un scroll para que se vea mas bonito y mas ordenado*/
+    max-height: 200px; /* añadimos un maximo de alto*/
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgb(0, 0, 0); /* sintaxis: x y desenfoque color*/
+    /* overflow: hidden; */
+    transform-origin: top; /* decir donde se aplica la transformacion(animacion), "top" para que empieze desde arriba*/
+    transform: scaleY(0); /* "scaley(0): comprimir verticalmente*/
+    transition: transform 0.2s ease-in-out; /* "in-out" empieza lento, acelera en el medio y termina lento*/
+    
+  }
+
+  .option_moneda{ /* cada criptomoneda */
+    padding: 10px;
+    display: flex; /* cambiamos la posicion de los texto al lado*/
+    align-items: center; /* alineamos los textos con la imagen*/
+    cursor: pointer;
+    transition: background 0.2 ease; /* añadimos una animacion corta y con inicio lento y final rapido al fondo*/
+  }
+
+  .option_moneda img{
+    width: 30px; /* añadimos ancho a cada imagen "sirve para dar espacio de alineado a las imagenes"*/
+    height: 20px;/* añadimos el alto de las imagenes "sirve para definir el alto de la tabla de cosas"*/
+    margin-right: 8px; /* para dar espacio al lado derecho de imagen y que tenga un espacio con las palabras*/
+  }
+
+  .option_moneda:hover{
+    background: #EAE6F2; /* color de fondo que cambia cuando pasamos por cada opcion*/
+  }
+
+  .custom-select-monedas.open .options_moneda{ /* cuando este abierto el div que engloba todo y el div de las criptos*/
+    display: block; /* cuando este abierto que este bloqueado el seleccionador*/
+    transform: scaleY(1); /* cuando este abierto que deje de estar comprimido y tenga su tamaño normal*/
+  }
+
+  .custom-select-monedas.open .selected-moneda .arrow{ /* cuando este abierto que afecte al div principal, seleccionador y la flecha*/
+    transform: rotate(180deg); /* cuando este abierto que la flecha se voltee */
+  }
+
+
+  .custom-select-monedas.open .options_moneda{
+    display: block;
+    transform: scaleY(1);
+  }
+
+  .custom-select-monedas.open .selected-moneda .arrow{
+    transform: rotate(180deg);
+  }
+
+  .boton{
+    align-items: center;
+    color: white;
+    background-color: rgb(114, 114, 114) ;
+    font-size: 2em;
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: 500;   
+  }
+
+  #resultado{
+    font-size: 1.8em;
+  }
+  
