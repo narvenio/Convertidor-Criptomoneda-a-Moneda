@@ -66,6 +66,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
+function delay(ms){
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function mostrar_Scroll() {
+  await delay(500)
+
+  window.scrollTo(0, 1000);
+}
+
 async function cargartasasdecambio() {
 const id_hojadatos = `1wjsn7SFBWQk-aWXVSJ7MWTguGx1wJa8Vt-Z5BI4f_Vc`;
 const apikey = `AIzaSyAP_fOHpPUB3o3UP64YtYGB6Kz83a5GF6s`;
@@ -221,5 +231,5 @@ function convertir(){
 
   //console.log("Tasa cripto:", criptoDiv);
   //console.log(`Conversión: ${montoFinal.toFixed(2)} ${monedaSeleccionada}`);
-
+  mostrar_Scroll();
 }
